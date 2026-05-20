@@ -1,0 +1,256 @@
+/* =========================
+   FONTS
+========================= */
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bebas';
+  src: url('/assets/fonts/ofont.ru_Bebas_Neue.ttf') format('ttf');
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* =========================
+   ROOT VARIABLES
+========================= */
+
+:root {
+  /* COLORS */
+  --color-bg: #0f0f14;
+  --color-text: #ffffff;
+  --color-accent: #8b5cf6;
+  --color-border: #2a2a35;
+
+  /* TYPOGRAPHY */
+  --font-main: 'Inter', sans-serif;
+  --font-title: 'Bebas', sans-serif;
+
+  --text-hero: 212px;
+  --text-h1: 36px;
+  --text-body: 20px;
+
+  /* FONT WEIGHTS */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+
+  /* LAYOUT */
+  --container-width: 1400px;
+  --section-padding: 120px;
+
+  /* UI */
+  --radius-pill: 300px;
+  --border-default: 1px solid var(--color-border);
+
+  /* EFFECTS */
+  --transition-default: 0.3s ease;
+}
+
+/* =========================
+   RESET
+========================= */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   BASE
+========================= */
+
+body {
+
+  font-family: var(--font-main);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  line-height: 1.5;
+
+  overflow-x: hidden;
+
+  background-image: url('../assets/img/bg.webp');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+}
+
+.title {
+  font-family: var(--font-title);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.hero__title {
+  font-size: var(--text-hero);
+}
+
+h1 {
+  font-size: var(--text-h1);
+}
+
+p {
+  font-size: var(--text-body);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  border: none;
+  outline: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.btn {
+background: transparent;
+border: solid white 1px;
+color: inherit;
+padding: 23px 38px;
+border-radius: 300px;
+color: white;
+}
+
+.btn--arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn--arrow::after {
+  content: "";
+  width: 30px;
+  height: 30px;
+  background-image: url("assets/img/icons/arrow-down-right.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.white-btn,
+.navbar__white-btn {
+background-color: white;
+color: #0f0f14;
+}
+
+
+/* =========================
+   LAYOUT
+========================= */
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  position: relative;
+
+  min-height: 125vh;
+
+  padding: 30px 0 60px;
+
+  background-image: url('./assets/img/hero-bg.webp');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+
+  overflow: hidden;
+  
+}
+
+.hero .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero__title {
+    color: #F8EDDB;
+}
+
+.hero__bottom {
+  margin-top: 180px;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  list-style: none;
+}
+
+.navbar__slogan {
+  margin-left: 231px;
+}
+
+.navbar--btn {
+    background: transparent;
+    border: solid white 1px;
+    color: inherit;
+    padding: 10px 50px;
+    border-radius: 300px;
+    color: #ffffff;
+}
+
+.navbar__btn--primary {
+    background-color: white;
+    color: black;
+}
+
+.navbar__slogan {
+  margin-left: auto;
+   color: #fff;
+  mix-blend-mode: soft-light;
+  font-weight: 400;
+}
