@@ -24,10 +24,10 @@
 }
 
 @font-face {
-  font-family: 'Bebas';
-  src: url('/assets/fonts/ofont.ru_Bebas_Neue.ttf') format('ttf');
-  font-weight: 400;
-  font-display: swap;
+    font-family: 'BebasNeueCyrillic';
+    src: url('assets/fonts/bebasneuecyrillic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
 }
 
 /* =========================
@@ -43,7 +43,7 @@
 
   /* TYPOGRAPHY */
   --font-main: 'Inter', sans-serif;
-  --font-title: 'Bebas', sans-serif;
+  --font-title: 'BebasNeueCyrillic' sans-serif;
 
   --text-hero: 212px;
   --text-h1: 36px;
@@ -91,14 +91,14 @@ body {
 
   overflow-x: hidden;
 
-  background-image: url('../assets/img/bg.webp');
+  background-image: url('/assets/img/bg.webp');
   background-repeat: no-repeat;
   background-position: top center;
   background-size: 100% auto;
 }
 
 .title {
-  font-family: var(--font-title);
+  font-family: 'BebasNeueCyrillic';
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -107,12 +107,16 @@ body {
   font-size: var(--text-hero);
 }
 
-h1 {
-  font-size: var(--text-h1);
+h2 {
+  font-size: 100px;
+}
+
+h3 {
+  font-size: 36px;
 }
 
 p {
-  font-size: var(--text-body);
+  font-size: 20px;
 }
 
 a {
@@ -195,7 +199,7 @@ color: #0f0f14;
   border-bottom-left-radius: 100px;
   border-bottom-right-radius: 100px;
 
-  overflow: hidden;
+  overflow: visible;
   
 }
 
@@ -206,11 +210,29 @@ color: #0f0f14;
 }
 
 .hero__title {
+   position: absolute;
+   bottom: -110px;
+   left: 40px;
     color: #F8EDDB;
+    font-family: 'BebasNeueCyrillic', sans-serif;
+    font-weight: 400;
+    font-size: 340px;
+    line-height: 100%;
+    letter-spacing: 0;
+    margin: 0;
+  transform: scaleY(1.1);
 }
 
 .hero__bottom {
   margin-top: 180px;
+}
+
+.hero__info {
+  width: 440px;
+  height: 162px;
+  color: white;
+  margin-top: 180px;
+  margin-left: auto;
 }
 
 /* =========================
@@ -254,3 +276,91 @@ color: #0f0f14;
   mix-blend-mode: soft-light;
   font-weight: 400;
 }
+
+/* =========================
+   PROBLEMS
+========================= */
+
+
+.problems {
+  margin-top: 150px;
+}
+
+.problems__info {
+  display: flex;
+  gap: 243px;
+}
+
+.problems__info-left,
+.problems__info-right {
+  width: 544px;
+}
+
+.problems__info-left {
+  margin-top: 50px;
+}
+
+.problems__info-right {
+  margin-right: auto;
+  margin-top: 207px;
+}
+
+.btn--problems {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-color: black;
+  color: black;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* =========================
+   SOLUTION
+========================= */
+
+.solution {
+  margin-top: 203px;
+}
+
+.solution__title {
+  text-align: center;
+}
+
+.solution__info {
+  width: 818px;
+  height: 807px;
+  border-radius: 100px;
+  margin-top: 213px;
+  margin-left: 525px;
+  background-image: url(/assets/img/bg-solution.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  padding: 50px;
+}
+
+.solution__info-bottom {
+  margin-top: 392px;
+  width: 543px;
+}
+
+.btn--solution {
+  width: 100%;
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+   background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(6px);
+  color: white;
+}
+
+
+
+
+
+
+
