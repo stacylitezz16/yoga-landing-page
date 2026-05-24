@@ -545,6 +545,7 @@ ul {
   background-position: top center;
   background-size: 100% auto;
   color:#fff;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.45);
 }
 
 .about .container {
@@ -585,14 +586,14 @@ ul {
 }
 
 .about__title {
-    flex: 0 0 315px; /* или сколько тебе надо */
+    flex: 0 0 315px;
     text-align: right;
 }
 
 .about__flex-bottom {
   margin-top: 260px;
     display: flex;
-    justify-content: space-between;
+    justify-content:flex-start;
     align-items: flex-end;
     gap: 100px;
 }
@@ -632,6 +633,7 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    white-space: nowrap;
 }
 
 /* =========================
@@ -681,12 +683,14 @@ ul {
 .reviews__list {
     display: flex;
     transition: transform 0.4s ease;
+    margin: 0 auto;
 }
 
 .reviews__list-item {
     min-width: 100%;
     display: flex;
     gap: 14px;
+    justify-content: center;
 }
 
 .reviews__list-photo {
@@ -694,25 +698,425 @@ ul {
     height: 420px;
     border-radius: 50px;
     object-fit: cover;
+    object-position: 53% 35%;
     flex-shrink: 0;
 }
 
 .reviews__list-info {
-    flex: 1;
 
-    width: 611px;
+    flex: 0 0 611px;
     height: 423px;
 
     border-radius: 50px;
     padding: 21px 20px 30px 30px;
+    justify-content: center;
 
     background: white;
     color: #111;
 
     display: flex;
     flex-direction: column;
+    gap: 5px;
+
+}
+
+.reviews__list-info p {
+  font-size: 18.5px;
+  text-align: left;
+  line-height: 122%;
+  letter-spacing: 0;
+}
+
+/* =========================
+  BEGINNERS
+========================= */
+
+.beginners {
+  margin-top: 149px;
+      background: linear-gradient(
+        180deg,
+        rgba(196, 157, 121, 0) 6.85%,
+        rgba(202, 168, 143, 0.7) 42.15%,
+        #BC7E50 100%
+    );
+
+    border-radius: 0 0 50px 50px;
+    overflow: hidden;
+}
+
+.beginners__title {
+  margin-bottom: 50px;
+}
+
+.beginners__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.beginners__card:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.beginners__card:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.beginners__text {
+    grid-column: 1 / -1;
+    margin: 30px 0;
+    width: 613px;
+    line-height: 1.2;
+}
+
+.beginners__card:nth-child(4) {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.beginners__card:nth-child(5) {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.beginners__info-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.beginners__info {
+    max-width: 915px;
+    margin: 0 auto;
+}
+
+.btn--beginners {
+    display: block;
+    margin: 40px auto 0;
+}
+
+.beginners__card {
+    width: 100%;
+}
+
+.beginners__card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 50px;
+    padding: 30px;
+
+    height: 434px;
+    width: 665px;
+
+    color: white;
+
+    border: solid white 1px;
+
+    background-size: cover;
+    background-position: center;
+}
+
+.beginners__card::before {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+
+    font-family: 'BebasNeueCyrillic', sans-serif;
+    
+    font-size: 36px;
+    color: white;
+
+    text-decoration: underline;
+}
+
+.beginners__card:nth-child(1)::before {
+    content: "01";
+}
+
+.beginners__card:nth-child(2)::before {
+    content: "02";
+}
+
+.beginners__card:nth-child(4)::before {
+    content: "03";
+}
+
+.beginners__card:nth-child(5)::before {
+    content: "04";
+}
+
+.beginners__card:nth-child(1) {
+    background-image: url("assets/img/grid-1.webp");
+}
+
+.beginners__card:nth-child(2){
+    background-image: url("assets/img/grid-2.webp");
+}
+
+.beginners__card:nth-child(4) {
+    background-image: url("assets/img/grid-3.webp");
+}
+
+.beginners__card:nth-child(5) {
+    background-image: url("assets/img/grid-4.webp");
+}
+
+.beginners-card__content {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+}
+
+.btn--beginners {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 35%;
+  margin-bottom: 35px;
+  color: #000000;
+  border-color: #000000;
+  margin-left: 33%;
+}
+
+.btn--beginners::after {
+  background-image: url("assets/img/icons/arrow-down-right-black.svg");
+}
+
+/* =========================
+  PRICING
+========================= */
+
+.pricing {
+  margin-top: 150px;
+}
+
+.pricing__title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.pricing-table {
+    font-family: "BebasNeueCyrillic", sans-serif;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 122%;
+    letter-spacing: 0;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 221px 85px;
+}
+
+.pricing-table td {
+    white-space: nowrap;
+}
+
+.pricing-table td:last-child {
+    text-align: right;
+}
+
+.pricing-table td:first-child {
+    text-align: left;
+}
+
+.btn--pricing {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 35%;
+  margin-bottom: 35px;
+  color: #000000;
+  border-color: #000000;
+  margin-left: 33%;
+}
+
+.btn--pricing::after {
+  background-image: url("assets/img/icons/arrow-down-right-black.svg");
+}
+
+/* =========================
+  FAQ
+========================= */
+
+.faq {
+  margin-top: 150px;
+}
+
+.faq__title {
+  margin-bottom: 50px;
+}
+
+.faq-question {
+    width: 897px;
+
+    padding: 20px 23px 20px 23px;
+
+    background: #fff;
+
+    border: 1px solid #000;
+    border-radius: 50px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.faq-item {
+    width: 897px;
+    margin: 0 auto 12px;
+}
+
+.faq-question::-webkit-details-marker {
+    display: none;
+}
+
+.faq-question::after {
+    content: "";
+    width: 45px;
+    height: 45px;
+
+    flex-shrink: 0;
+
+    background-image: url("assets/img/icons/arrow-left.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transition: transform 0.2s ease;
+}
+
+.faq-item[open] .faq-question::after {
+    transform: rotate(-90deg);
+}
+
+.faq-answer {
+    margin: 10px 0 0;
+
+    padding: 22.5px 44px 22.5px 20px;
+
+    background: #E3A883;
+    border: 1px solid #000;
+
+    border-radius: 30px;
+}
+
+/* =========================
+  FOOTER
+========================= */
+
+.footer {
+  margin-top: 150px;
+  padding-top: 63px;
+  position: relative;
+  overflow: hidden;
+    border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+}
+
+.footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+   background-image: url('./assets/img/hero-bg.webp');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: inherit;
+  filter: blur(10px) brightness(0.9) saturate(0.85) contrast(0.95);
+  transform: scale(1.1);
+  z-index: 0;
+}
+
+.footer .container {
+    position: relative;
+    z-index: 1;
+}
+
+.footer__link-list {
+    width: 246px;
+    margin-left: 53px;
+
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
+
+.footer__list-item a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    white-space: nowrap;
+    text-decoration: none;
+    color: white;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.footer__title {
+    margin-top: 280px;
+}
+
+.footer__title {
+    font-size: 340px;
+    font-family: "BebasNeueCyrillic";
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+    color: transparent;
+    -webkit-text-stroke: 5px white;
+    white-space: nowrap;
+    text-align: center;
+     display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.photo-o {
+    width: 148px;
+    height: 250px;
+
+    display: inline-block;
+    vertical-align: baseline;
+    transform: translateY(9px);
+}
+
+.footer__privacy-list {
+  width: 100%;
+    max-width: none;
+    margin-top: 23px;
+    font-size: 20px;
+
+    color: white;
+
+    display: flex;
+    gap: 94px;
+
+    padding: 0 37px;
+
+    flex-wrap: wrap;
+}
+
+.footer__privacy-list {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
 
 
 
