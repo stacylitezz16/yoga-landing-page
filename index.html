@@ -15,7 +15,7 @@
  <nav class="navbar">
   <ul class="navbar__list">
     <li>
-      <button type="button" class = "btn navbar--btn navbar__btn--primary">
+      <button type="button" class = "btn navbar--btn navbar__btn--primary" data-vk="true">
       Записаться
     </button>
   </li>
@@ -31,13 +31,13 @@
 
     <div class = "hero__info">
     <p class = "hero__info-text">Практикуй йогу онлайн, которая мягко развивает гибкость, укрепляет тело и выравнивает внутреннее состояние.</p>
-    <button type="button" class = "btn btn--hero white-btn">Знакомство</button>
+    <button type="button" class = "btn btn--hero white-btn" id="openIntro">Знакомство</button>
     <button type="button" class = "btn btn--hero btn--arrow">На практику</button>
   </div>
   <div class="hero__bottom">
   <div class = "hero__text">
   <div class="hero__subtitle-wrapper">
-    <span class="icon"></span>
+    <span class="arrow__icon"></span>
 
     <p class="hero__subtitle">
         С ВАЛЕРИЕЙ АННЕНКОВОЙ
@@ -141,7 +141,7 @@
       </div>
   </section>
 
-  <section class="about">
+  <section class="about" id="education">
     <div class="container">
     <div class = "about__flex-top">
       <article class = "about__flex-info">
@@ -164,7 +164,7 @@
         <li>Академия йоги — преподаватель хатха-йоги (2026)</li>
       </ul>
       </div>
-      <button type="button" class = "about__button-list"><img class = "qualification-img" src="assets/img/diploma.png" alt="Квалификация"></button>
+      <button type="button" class = "about__button-list" id="openDocuments"><img class = "qualification-img" src="assets/img/diploma.png" alt="Квалификация"></button>
     </div>
     </div>
     </div>
@@ -257,11 +257,11 @@
           <p>12 эфиров в месяц проходят в ВКонтакте — можно подключаться онлайн или заниматься в удобное время по записи.</p>
         </article>
         </div>
-        <button type="button" class = "btn btn--beginners btn--arrow">Записаться</button> 
+        <button type="button" class = "btn btn--beginners btn--arrow" data-vk="true">Записаться</button> 
     </div>
   </section>
 
-  <section class="pricing">
+  <section class="pricing" id="pricing">
     <div class = "container">
     <h2 class = "title pricing__title">Цены</h2>
     <table class = "pricing-table">
@@ -284,7 +284,7 @@
 
   </tbody>
     </table>
-    <button type="button" class = "btn btn--pricing btn--arrow">Записаться</button>
+    <button type="button" class = "btn btn--pricing btn--arrow" data-vk="true">Записаться</button>
     </div>
   </section>
 
@@ -363,10 +363,34 @@
 <footer class="footer">
   <div class="container">
   <ul class = "footer__link-list">
-    <li class = "footer__list-item"><a>Запись по телефону<img class = "icon" src = "/assets/img/icons/arrow-down-right.svg" alt = "Стрелочка"></a></li>
-    <li class = "footer__list-item"><a>Написать в telegram<img class = "icon" src = "/assets/img/icons/arrow-down-right.svg" alt = "Стрелочка"></a></li>
-    <li class = "footer__list-item"><a>Написать в ВК<img class = "icon" src = "/assets/img/icons/arrow-down-right.svg" alt = "Стрелочка"></a></li>
+<li class="footer__list-item">
+  <a href="sms:89537060331">
+    Запись по телефону
+    <img src="/assets/img/icons/arrow-down-right.svg" alt="Стрелочка">
+  </a>
+</li>
+
+<li class="footer__list-item">
+  <a href="https://t.me/Lera_metel" target="_blank">
+    Написать в telegram
+    <img src="/assets/img/icons/arrow-down-right.svg" alt="Стрелочка">
+  </a>
+</li>
+
+<li class="footer__list-item">
+  <a href="https://vk.me/id282846234" target="_blank">
+    Написать в ВК
+    <img src="/assets/img/icons/arrow-down-right.svg" alt="Стрелочка">
+  </a>
+</li>
   </ul>
+    <div class="footer__subtitle-wrapper">
+    <span class="arrow__icon"></span>
+
+    <p class="hero__subtitle">
+        С ВАЛЕРИЕЙ АННЕНКОВОЙ
+    </p>
+</div>
 <div class="footer__title">
   ХАТХА Й
   <img class="photo-o" src="assets/img/icons/Frame.svg" alt="О">
@@ -380,6 +404,71 @@
         </ul>
         </div>
 </footer>
+
+<div class="modal" id="documentsModal">
+  <div class="modal__overlay"></div>
+
+  <div class="modal__window">
+
+    <div class="modal__documents">
+
+      <img
+        class="modal__document modal__document--clickable"
+        src="assets/img/certificate-1.webp"
+        alt="Сертификат 1"
+      >
+
+      <div class="modal__document-wrapper">
+        <img
+          class="modal__document modal__document--clickable"
+          src="assets/img/certificate-2.webp"
+          alt="Сертификат 2"
+        >
+
+        <p class="modal__title">ДОКУМЕНТЫ</p>
+      </div>
+
+      <div class="modal__empty"></div>
+
+    </div>
+
+  </div>
+</div>
+
+<div class="certificate-viewer" id="certificateViewer">
+
+    <div class="certificate-viewer__overlay"></div>
+
+    <img
+        class="certificate-viewer__image"
+        id="viewerImage"
+        src=""
+        alt="Сертификат"
+    >
+
+</div>
+
+<div class="modal modal--intro" id="introModal">
+  <div class="modal__overlay"></div>
+
+  <div class="modal__window modal__window--intro">
+
+    <div class="modal__video-wrapper">
+
+      <iframe
+        class="modal__video"
+        src=""
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+      ></iframe>
+
+    </div>
+
+    <p class="modal__title modal__title--intro">ЗНАКОМСТВО</p>
+
+  </div>
+</div>
+
 <script src="script.js"></script>
   </body>
 </html>
