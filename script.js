@@ -165,10 +165,6 @@ pricingBtn.addEventListener('click', () => {
 // VK CHAT
 // =========================
 
-// =========================
-// VK CHAT
-// =========================
-
 function openVKChat() {
     window.open("https://vk.me/id282846234", "_blank");
 }
@@ -180,29 +176,107 @@ vkButtons.forEach(btn => {
 });
 
 // ===============================
-// INTRO VIDEO MODAL
+// VIDEO MODAL (COMMON)
 // ===============================
 
 const introModal = document.getElementById("introModal");
 const introOpenBtn = document.getElementById("openIntro");
+
 const introOverlay = introModal.querySelector(".modal__overlay");
-const videoFrame = introModal.querySelector(".modal__video");
 
-const VIDEO_URL = "https://www.youtube.com/embed/XXXXXXXX?autoplay=1";
+const videoElement = introModal.querySelector(".modal__video");
 
-function openIntroModal() {
+const modalTitle = introModal.querySelector(".modal__title--intro");
+const modalDescription = introModal.querySelector(".modal__description");
+
+
+// ===============================
+// OPEN MODAL FUNCTION
+// ===============================
+
+function openVideoModal({ src, title, description }) {
+
+    modalTitle.textContent = title || "";
+    modalDescription.textContent = description || "";
+
     introModal.classList.add("active");
     document.body.style.overflow = "hidden";
 
-    videoFrame.src = VIDEO_URL;
+    videoElement.src = src;
+    videoElement.load();
+    videoElement.play();
 }
 
-function closeIntroModal() {
+
+// ===============================
+// CLOSE MODAL
+// ===============================
+
+function closeVideoModal() {
+
     introModal.classList.remove("active");
+
     document.body.style.overflow = "";
 
-    videoFrame.src = "";
+    videoElement.pause();
+    videoElement.removeAttribute("src");
+    videoElement.load();
 }
 
-introOpenBtn.addEventListener("click", openIntroModal);
-introOverlay.addEventListener("click", closeIntroModal);
+
+// ===============================
+// INTRO BUTTON
+// ===============================
+
+introOpenBtn.addEventListener("click", () => {
+
+    openVideoModal({
+        src: "assets/video/intro.mp4",
+        title: "ЗНАКОМСТВО",
+        description: ""
+    });
+
+});
+
+introOverlay.addEventListener("click", closeVideoModal);
+
+
+// ===============================
+// BEGINNERS CARDS
+// ===============================
+
+const beginnersCards = document.querySelectorAll('.beginners__card');
+
+beginnersCards.forEach(card => {
+
+    card.addEventListener('click', () => {
+
+        openVideoModal({
+            src: card.dataset.video,
+            title: card.dataset.title,
+            description: card.dataset.description
+        });
+
+    });
+
+});
+
+// ===============================
+// PRACTICE BUTTONS SCROLL
+// ===============================
+
+const practiceButtons = document.querySelectorAll('.btn--arrow');
+const beginnersSection = document.getElementById('beginners');
+
+practiceButtons.forEach(button => {
+
+    // исключаем кнопки "Записаться"
+    if (!button.hasAttribute('data-vk')) {
+
+        button.addEventListener('click', () => {
+            smoothScrollToElement(beginnersSection, 1100);
+        });
+
+    }
+
+});

@@ -31,7 +31,16 @@
 
     <div class = "hero__info">
     <p class = "hero__info-text">Практикуй йогу онлайн, которая мягко развивает гибкость, укрепляет тело и выравнивает внутреннее состояние.</p>
-    <button type="button" class = "btn btn--hero white-btn" id="openIntro">Знакомство</button>
+    <button
+  type="button"
+  class="btn btn--hero white-btn"
+  id="openIntro"
+  data-video="assets/video/intro.mp4"
+  data-title="ЗНАКОМСТВО"
+  data-description="Практика базовых асан йоги."
+>
+  Знакомство
+</button>
     <button type="button" class = "btn btn--hero btn--arrow">На практику</button>
   </div>
   <div class="hero__bottom">
@@ -205,17 +214,23 @@
       </div>
   </section>
 
-  <section class="beginners">
+  <section class="beginners" id="beginners">
     <div class = "container">
     <h2 class = "title beginners__title">ПЕРВЫЙ ШАГ В ЙОГУ</h2>
       <div class = "beginners__grid">
-        <article class = "beginners__card">
+        <article class = "beginners__card"
+          data-video="assets/video/video-1.mp4"
+  data-title="ЗНАКОМСТВО"
+  data-description="Практика базовых асан йоги.">
           <div class = "beginners-card__content">
           <h3 class = "title beginners__card-title">Знакомство</h3>
           <p class="beginners-card__text">Практика базовых асан йоги.</p>
           </div>
         </article>
-        <article class = "beginners__card">
+        <article class = "beginners__card"
+          data-video="assets/video/video-2.mp4"
+  data-title="ДЫХАНИЕ"
+  data-description="Дыхательные техники и как с ними работать.">
           <div class = "beginners-card__content">
           <h3 class = "title beginners__card-title">Дыхание</h3>
           <p class="beginners-card__text">Дыхательные техники и как с ними работать.</p>
@@ -226,14 +241,20 @@
           <p>Познакомьтесь с форматом, почувствуйте комфорт практики
 и выберите подходящий для себя путь — групповые эфиры, индивидуальные или занятия в йога клубе.</p>
         </div>
-        <article class = "beginners__card">
+        <article class = "beginners__card"
+         data-video="assets/video/video-3.mp4"
+  data-title="Классическая хатха-йога"
+  data-description="Комбинация сила + расслабление.">
           <div class = "beginners-card__content">
           <h3 class = "title beginners__card-title">Классическая хатха-йога</h3>
           <p class="beginners-card__text">Комбинация сила + расслабление.</p>
           </div>
         </article>
 
-        <article class = "beginners__card">
+        <article class = "beginners__card"
+        data-video="assets/video/video-4.mp4"
+  data-title="Хатха-йога"
+  data-description="Открытое сердце и работа с сознанием.">
           <div class = "beginners-card__content">
           <h3 class = "title beginners__card-title">Хатха-йога</h3>
           <p class="beginners-card__text">Открытое сердце и работа с сознанием.</p>
@@ -449,24 +470,28 @@
 </div>
 
 <div class="modal modal--intro" id="introModal">
+
   <div class="modal__overlay"></div>
 
   <div class="modal__window modal__window--intro">
 
     <div class="modal__video-wrapper">
 
-      <iframe
+      <video
         class="modal__video"
-        src=""
-        allow="autoplay; encrypted-media"
-        allowfullscreen
-      ></iframe>
+        controls
+        preload="none"
+      ></video>
 
     </div>
 
-    <p class="modal__title modal__title--intro">ЗНАКОМСТВО</p>
+    <div class="modal__intro-info">
+      <p class="modal__title modal__title--intro"></p>
+      <p class="modal__description"></p>
+    </div>
 
   </div>
+
 </div>
 
 <script src="script.js"></script>
