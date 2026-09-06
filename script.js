@@ -97,7 +97,7 @@ documents.forEach(documentItem => {
 
         viewer.classList.add('active');
 
-        viewerImage.src = documentItem.src;
+        viewerImage.src = documentItem.dataset.full;
 
     });
 
@@ -184,7 +184,8 @@ const introOpenBtn = document.getElementById("openIntro");
 
 const introOverlay = introModal.querySelector(".modal__overlay");
 
-const videoElement = introModal.querySelector(".modal__video");
+const videoFrame =
+    introModal.querySelector(".modal__video-frame");
 
 const modalTitle = introModal.querySelector(".modal__title--intro");
 const modalDescription = introModal.querySelector(".modal__description");
@@ -202,9 +203,7 @@ function openVideoModal({ src, title, description }) {
     introModal.classList.add("active");
     document.body.style.overflow = "hidden";
 
-    videoElement.src = src;
-    videoElement.load();
-    videoElement.play();
+    videoFrame.src = src;
 }
 
 
@@ -218,9 +217,7 @@ function closeVideoModal() {
 
     document.body.style.overflow = "";
 
-    videoElement.pause();
-    videoElement.removeAttribute("src");
-    videoElement.load();
+    videoFrame.src = "";
 }
 
 
@@ -231,9 +228,9 @@ function closeVideoModal() {
 introOpenBtn.addEventListener("click", () => {
 
     openVideoModal({
-        src: "assets/video/intro.mp4",
-        title: "ЗНАКОМСТВО",
-        description: ""
+        src: introOpenBtn.dataset.video,
+        title: introOpenBtn.dataset.title,
+        description: introOpenBtn.dataset.description
     });
 
 });

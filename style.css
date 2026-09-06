@@ -93,8 +93,8 @@ body {
 
   background-image: url('/assets/img/bg.webp');
   background-repeat: no-repeat;
-  background-position: center 40px;
-  background-size: 100% auto;
+  background-position: center;
+  background-size: 100% 100%;
 }
 
 .title {
@@ -249,6 +249,12 @@ ul {
   margin-bottom: 20px;
 }
 
+.hero__text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .hero__subtitle {
   font-family: 'BebasNeueCyrillic', sans-serif;
   font-weight: 400;
@@ -263,9 +269,9 @@ ul {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 23px;
-    margin-left: -20px;
-    transform: translateY(-48px);
+    transform: translateX(-25px) translateY(-60px);
+
+    margin: 0;
 }
 
 .arrow__icon {
@@ -1056,6 +1062,7 @@ ul {
 }
 
 .faq-item {
+  position: relative;
     width: 897px;
     margin: 0 auto 12px;
 }
@@ -1084,7 +1091,13 @@ ul {
 }
 
 .faq-answer {
-    margin: 10px 0 0;
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    z-index: 100;
+    margin: 0;
 
     padding: 22.5px 44px 22.5px 20px;
 
@@ -1092,6 +1105,14 @@ ul {
     border: 1px solid #000;
 
     border-radius: 30px;
+}
+
+.faq-item[open] .faq-answer {
+    display: block;
+}
+
+.faq-item[open] {
+    z-index: 100;
 }
 
 /* =========================
@@ -1277,7 +1298,7 @@ ul {
 
     border-radius: 70px;
 
-    object-fit: cover;
+    object-fit: contain;
 
     flex-shrink: 0;
 }
@@ -1294,7 +1315,7 @@ ul {
     font-family: "BebasNeueCyrillic";
     font-size: 36px;
 
-    color: white;
+    color: black;
 }
 
 /* =========================
@@ -1340,11 +1361,7 @@ ul {
 
     object-fit: contain;
 
-    border-radius: 40px;
-
     z-index: 2;
-
-    transform: rotate(-90deg);
 }
 
 /* CLICKABLE DOCUMENT */
@@ -1376,8 +1393,15 @@ ul {
 
 }
 
+.modal__video iframe,
+.modal__video {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
 .modal__description {
-  color: white;
+  color: black;
   font-size: 18px;
 
   margin-top: 10px;
@@ -1433,7 +1457,7 @@ ul {
 }
 
 .modal__description {
-  color: white;
+  color: black;
   font-size: 18px;
   margin-top: 10px;
 }
@@ -1520,7 +1544,7 @@ ul {
 }
 
 .hero__subtitle-wrapper {
-    transform: translateY(-64px);
+    transform: translateX(-20px) translateY(-90px);
 }
 
   /* =========================
@@ -1816,6 +1840,12 @@ ul {
     max-width: 532px;
 }
 
+.beginners__card::before {
+    top: 25px;
+    right: 25px;
+    font-size: 16px;
+}
+
 /* =========================
   PRICING
 ========================= */
@@ -1913,7 +1943,7 @@ ul {
 
 .footer__subtitle-wrapper {
     margin-left: 5px;
-    transform: translateY(140px);
+    transform: translateY(150px);
 }
 
 /* =========================
@@ -1982,16 +2012,16 @@ ul {
    MOBILE
 ========================= */
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 
   body {
     background-image: url('/assets/img/mobile.webp');
-    background-position: center 15px;
+    background-position: center 40px;
     font-size: 10px;
   }
 
  .container {
-    padding: 0 20px;
+    padding: 0 16px;
     max-width: none;
   }
 
@@ -2008,8 +2038,17 @@ ul {
   }
 
   .btn {
-    padding: 4px 12px;
+    padding: 4px 10px;
   }
+
+      .btn--arrow {
+        gap: 0px;
+    }
+
+        .btn--arrow::after {
+        width: 13px;
+        height: 13px;
+    }
 
 /* =========================
    HERO
@@ -2017,18 +2056,21 @@ ul {
 
     .hero {
         padding: 12px 0 0;
-        min-height: 45vh;
+        height: 331px;
         border-bottom-left-radius: 50px;
         border-bottom-right-radius: 50px;
-  height: clamp(260px, 45vw, 331px);
-  background-size: cover;
-  background-position: 50% 20%;
+           background-size: cover;
+    background-position: center top;
+    overflow: hidden;
+    background-position: 88% 5%;
     }
 
     .hero__info {
-      max-width: 199px;
+      max-width: 180px;
       margin-top: 68px;
       height: 60px;
+      margin-left: auto;
+      text-align: justify;
     }
 
     .hero__info-text {
@@ -2046,11 +2088,23 @@ ul {
     }
 
         .hero__subtitle-wrapper {
-        transform: translateY(-44px);
+        transform: translateX(-9px) translateY(7px);
+    }
+
+        .arrow__icon {
+        width: 20px;
     }
 
         .arrow__icon {
         width: 50px;
+        height: 1px;
+    }
+
+    .arrow__icon::after {
+        width: 6px;
+        height: 6px;
+        border-top: 1px solid #F8EDDB;
+        border-right: 1px solid #F8EDDB;
     }
 
       /* =========================
@@ -2059,6 +2113,7 @@ ul {
 
         .navbar {
         margin: 0 -5px;
+        position: fixed;
     }
 
     .navbar__list {
@@ -2071,6 +2126,7 @@ ul {
 
     .navbar__slogan {
         font-size: 10.5px;
+        transform: translateX(20px);
     }
 
 
@@ -2087,7 +2143,7 @@ ul {
     }
 
         .problems__info-left, .problems__info-right {
-        max-width: 214px;
+        max-width: 200px;
     }
 
         .problems__info-left {
@@ -2096,6 +2152,7 @@ ul {
 
         .problems__info-right {
         margin-top: 60px;
+        margin-left: auto;
     }
 
 
@@ -2111,18 +2168,18 @@ ul {
         width: 311px;
         min-height: 272px;
         border-radius: 30px;
-        margin-left: 75px;
+        margin-left: 90px;
         padding: 25px;
-        margin-top: 25px;
+        margin-top: 38px;
     }
 
         .solution__info-top {
-        max-width: 240px;
+        max-width: 250px;
     }
 
         .solution__info-bottom {
         margin-top: 93px;
-        width: 170px;
+        width: 175px;
     }
 
 
@@ -2167,6 +2224,10 @@ ul {
     margin-top: 0;
 }
 
+.formats-card__content {
+  max-width: 160px;
+}
+
     /* =========================
    ABOUT
 ========================= */
@@ -2197,7 +2258,7 @@ ul {
     }
 
     .about__flex-top {
-    gap: 10px;
+    gap: 15px;
 }
 
     .about__flex-bottom {
@@ -2216,7 +2277,12 @@ ul {
         flex: 0 0 80px;
         margin-left: auto;
         margin-bottom: 10px;
+        transform: translateX(15px);
     }
+
+    .about__button-list:hover {
+    transform: translateX(15px) scale(1.03);
+}
 
     .about__button-list img {
     width: 180px;
@@ -2279,6 +2345,7 @@ ul {
     .beginners {
         margin-top: 30px;
         border-radius: 30px;
+        text-align: center;
     }
 
     .beginners .container {
@@ -2299,17 +2366,36 @@ ul {
         padding: 13px;
         height: 138px;
         width: 204px;
+        text-align: left;
     }
 
     .beginners__card::before {
-    top: 32px;
-    right: 32px;
     font-size: 16px;
 }
+
+    .beginners__card:nth-child(1)::before {
+      top: 15px;
+      right: 15px;
+    }
+
+    .beginners__card:nth-child(2)::before {
+      top: 20px;
+      right: 20px;
+    }
+
+    .beginners__card:nth-child(4)::before {
+      top: 22px;
+      right: 22px;
+    }
+
+    .beginners__card:nth-child(5)::before {
+      top: 45px;
+    }
 
     .beginners__text {
         margin-left: 10px;
         width: 300px;
+        text-align: left;
     }
 
         .beginners__info-bottom {
@@ -2318,10 +2404,11 @@ ul {
         margin-left: auto;
         margin-right: auto;
         max-width: 335px;
+        text-align: left;
     }
 
     .btn--beginners {
-    display: block;
+      display: inline-flex;
     margin: 15px auto 15px;
 }
 
@@ -2341,7 +2428,7 @@ ul {
 
         .pricing-table {
         font-size: 12px;
-        border-spacing: 60px 10px;
+        border-spacing: 20px 10px;
         margin-bottom: 15px;
         margin-left: auto;
         margin-right: auto;
@@ -2350,6 +2437,17 @@ ul {
 
 .btn--pricing {
     margin-bottom: 15px;
+}
+
+.pricing-table td:first-child {
+    text-align: left;
+    padding-left: 40px;
+    
+}
+
+.pricing-table td:last-child {
+    text-align: right;
+    padding-right: 40px;
 }
 
 /* =========================
@@ -2381,7 +2479,7 @@ ul {
 }
 
 .faq-answer {
-  margin: 3px 0 0;
+  top: calc(100% + 1px);
   border-radius: 15px;
   padding: 7px 20px 7px 9px;
 }
@@ -2398,51 +2496,111 @@ ul {
         border-top-right-radius: 30px;
     }
 
-
-  .footer .container {
-    display: flex;
-    flex-direction: column;
-  }
+    .footer .container {
+        position: relative;
+    }
 
     .footer__title {
-        font-size: 100px;
-        margin-top: 10px;
-        order: 3;
+        font-size: 112px;
+        margin-top: 100px;
+        margin-bottom: auto;
     }
 
     .footer__privacy-list {
+      position: absolute;
         font-size: 9px;
         gap: 5px;
         padding: 0 12px;
         flex-direction: column;
-        order: 1;
-      align-self: flex-start;
       width: auto;
-      left: auto;
       transform: none;
-      margin-top: 10px;
+      top: 20px;
+      left: 0;
     }
 
     .footer__link-list {
         width: 120px;
         gap: 10px;
-          order: 2;
       align-self: flex-end;
       margin-left: auto;
     }
 
-      .footer__subtitle-wrapper {
-    order: 2;
-  }
-
-      .photo-o {
-        width: 80px;
-        height: 80px;
-        transform: translateY(4px);
-        border-radius: 10px;
+        .footer__subtitle-wrapper {
+        transform: translateX(-15px) translateY(100px);
     }
 
-  
+    .photo-o {
+        width: 80px;
+        height: 85px;
+        border-radius: 10px;
+        outline: 1px solid #fff;
+    }
+
+  /* =========================
+   MODAL
+========================= */
+
+    .modal__window {
+        width: 420px;
+        height: 240px;
+        padding: 10px 10px 179px 10px;
+        border-radius: 20px;
+    }
+
+.modal__document,
+.modal__empty {
+    width: 130px;
+    height: 180px;
+
+    border-radius: 20px;
+}
+
+.modal__documents {
+    gap: 5px;
+}
+
+.modal__title {
+    margin-top: 15px;
+    padding-bottom: 22px;
+
+    font-size: 15px;
+}
+
+.certificate-viewer__image {
+    max-width: 60vw;
+    max-height: 70vh;
+    width: auto;
+    height: auto;
+}
+
+/* Видео-модалка */
+
+.modal--intro .modal__window--intro {
+    width: 760px;
+    height: auto;
+
+    padding: 10px 10px 50px 10px;
+
+    background: #E9A56E;
+    border: 2px solid #000;
+
+    border-radius: 20px;
+}
+
+.modal__video-wrapper {
+    width: 100%;
+    height: 220px;
+
+    border-radius: 20px;
+}
+
+.modal__description {
+    font-size: 10px;
+}
+
+.modal__intro-info {
+    bottom: 7px;
+}
 
 }
 
